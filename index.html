@@ -12,41 +12,46 @@
     <div class="container">
       <h1>Welcome to NdaY'</h1>
       <p>Bridging Innovation and Community for a Sustainable Future</p>
-      <a href="#about" class="btn" id="learn-more">Learn More</a>
+      <a href="#about" class="btn">Learn More</a>
     </div>
   </header>
 
   <!-- Dynamic Background Section -->
-  <section class="hero-dynamic">
-    <div class="dynamic-background" id="dynamic-bg">
-      <!-- Fixed Background Image -->
+  <section class="hero-dynamic" id="dynamic-bg">
+    <div class="dynamic-background">
       <div class="fixed-bg"></div>
-
-      <!-- Rotating Globe -->
       <div class="rotating-globe">
         <img src="assets/images/NdaY_Globe.png" alt="Rotating Globe" class="globe-image">
       </div>
-
-      <!-- Dropping Smartphone -->
       <div class="dropping-smartphone">
         <img src="assets/images/NdaY_smartphone.png" alt="Smartphone" class="smartphone-image">
       </div>
     </div>
   </section>
 
-  <!-- Horizontal Menus Section -->
-  <header id="menu-section" class="hidden">
-    <img src="assets/images/NdaY_Logo.png" alt="Logo" class="logo">
-    <nav class="horizontal-menu">
-      <ul>
-        <li data-menu="about-us">About Us</li>
-        <li data-menu="projects">Our Projects</li>
-        <li data-menu="locations">Where We Operate</li>
-        <li data-menu="documents">Documents Shared</li>
-        <li data-menu="testimonies">Heros / Testimonies</li>
-        <li data-menu="contact">Contact Us</li>
-      </ul>
-    </nav>
+  <!-- Horizontal Menus -->
+  <header id="menu-section" class="menu-hidden">
+    <div class="menu-container">
+      <img src="assets/images/NdaY_Logo.png" alt="Logo" class="logo">
+      <nav class="horizontal-menu">
+        <ul>
+          <li id="about-us">About Us</li>
+          <li id="projects">Projects
+            <!-- Projects Submenu -->
+            <ul class="projects-submenu hidden">
+              <li>NdaY' Radoko</li>
+              <li>NdaY' Ben'ny Tanàna</li>
+              <li>NdaY' Fako</li>
+              <li>NdaY' Hety</li>
+            </ul>
+          </li>
+          <li id="locations">Where We Operate</li>
+          <li id="documents">Documents Shared</li>
+          <li id="testimonies">Heroes / Testimonies</li>
+          <li id="contact">Contact Us</li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <script src="script.js"></script>

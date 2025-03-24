@@ -1,144 +1,187 @@
-/* General Styling */
+/* ================= General Styling ================= */
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent scrolling */
+  height: 100%;
+}
+
+/* ================= Hero Section ================= */
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 2; /* Above the dynamic background */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.hero .btn {
+  padding: 10px 20px;
+  background-color: white;
+  color: #1e88e5;
+  border-radius: 5px;
+}
+
+/* ================= Dynamic Background ================= */
+.hero-dynamic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Below the hero section */
+  overflow: hidden;
+}
+
+.dynamic-background .fixed-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/images/NdaY_community.png') no-repeat center center;
+  background-size: cover;
+}
+
+/* Rotating Globe */
+.dynamic-background .rotating-globe {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 30%; /* Adjust size dynamically */
+  max-width: 200px;
+  height: auto;
+  transform: translate(-50%, -30%);
+  animation: rotate 12s infinite linear;
+}
+
+/* Dropping Smartphone */
+.dynamic-background .dropping-smartphone {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 20%; /* Adjust size dynamically */
+  max-width: 150px;
+  height: auto;
+  transform: translate(-50%, -60%);
+  animation: drop 3s infinite ease-in-out;
+}
+
+/* ================= Animations ================= */
+@keyframes rotate {
+  from {
+      transform: translate(-50%, -30%) rotate(0deg);
   }
-  
-  /* Hero Section */
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(to bottom, #1e88e5, #42a5f5);
-    color: white;
-    text-align: center;
-    position: relative;
+  to {
+      transform: translate(-50%, -30%) rotate(360deg);
   }
-  
-  .hero .container {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes drop {
+  0%, 100% {
+      transform: translate(-50%, -60%) translateY(0px);
   }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+  50% {
+      transform: translate(-50%, -60%) translateY(20px);
   }
-  
-  .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .hero .btn {
-    padding: 10px 20px;
-    background-color: #ffffff;
-    color: #1e88e5;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .hero .btn:hover {
-    background-color: #1e88e5;
-    color: white;
-  }
-  
-  /* Dynamic Background Section */
-  .hero-dynamic {
-    position: relative;
-    height: 100vh;
-    background-color: #f1f1f1;
-  }
-  
-  .dynamic-background .fixed-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('assets/images/NdaY_Background.jpg') no-repeat center center;
-    background-size: cover;
-    filter: blur(5px);
-  }
-  
-  .dynamic-background .rotating-globe {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    animation: rotate 10s infinite linear;
-  }
-  
-  .globe-image {
-    width: 150px;
-  }
-  
-  .dynamic-background .dropping-smartphone {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-    animation: drop 3s infinite ease-in-out;
-  }
-  
-  .smartphone-image {
-    width: 100px;
-  }
-  
-  /* Keyframe Animations */
-  @keyframes rotate {
-    from {
-      transform: translate(-50%, -20%) rotate(0deg);
-    }
-    to {
-      transform: translate(-50%, -20%) rotate(360deg);
-    }
-  }
-  
-  @keyframes drop {
-    0%, 100% {
-      transform: translate(-50%, -40%) translateY(0px);
-    }
-    50% {
-      transform: translate(-50%, -40%) translateY(20px);
-    }
-  }
-  
-  /* Horizontal Menus Section */
-  .hidden {
-    display: none;
-  }
-  
-  #menu-section {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #008394;
-  }
-  
-  .logo {
-    height: 50px;
-    margin-right: 20px;
-  }
-  
-  .horizontal-menu ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .horizontal-menu li {
-    margin-right: 20px;
-    padding: 10px;
-    background-color: #00bcd4;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .horizontal-menu li:hover {
-    background-color: #00796b;
-  }
-  
+}
+
+/* ================= Projects Section ================= */
+#projects-section {
+  display: none; /* Hide the projects section initially */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white; /* Adjust as needed */
+  z-index: 4; /* Above other sections */
+  overflow-y: auto; /* Allow scrolling for project details */
+}
+
+/* Horizontal Menus */
+#menu-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+  z-index: 3; /* Above dynamic background */
+  display: none; /* Hidden initially */
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#menu-section.active {
+  display: block; /* Show menu section */
+  opacity: 1;
+}
+
+.horizontal-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 15px;
+}
+
+.horizontal-menu li {
+  margin-right: 20px;
+  padding: 10px 15px;
+  background-color: #00796b;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.horizontal-menu li:hover {
+  background-color: #005f4f;
+}
+/* Projects Submenu */
+.projects-submenu {
+  position: absolute;
+  top: 100%; /* Position below the "Projects" menu item */
+  left: 0;
+  display: none; /* Hidden by default */
+  list-style: none;
+  background-color: #00796b;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.projects-submenu li {
+  margin: 5px 0;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  background-color: #005f4f;
+  border-radius: 5px;
+}
+
+.projects-submenu li:hover {
+  background-color: #003f3d;
+}
+
+/* Show submenu on hover */
+.horizontal-menu li:hover .projects-submenu {
+  display: block; /* Display the submenu */
+}
